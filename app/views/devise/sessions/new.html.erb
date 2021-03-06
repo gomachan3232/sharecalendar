@@ -3,8 +3,9 @@
 ログイン情報を入力
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
- <%= flash[:alert] %>
- <%= flash[:notice] %>
+<%= flash[:alert] %>
+
+
 
   メールアドレス
   <%= f.email_field :email, placeholder: "PC・携帯どちらでも可" %>
