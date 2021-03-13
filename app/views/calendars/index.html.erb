@@ -12,7 +12,7 @@
 
 <% @calendars.each do |calendar| %>
 <% next unless current_user.id == calendar.user_id %>
-  <%= link_to "#{calendar.name}のカレンダーを確認", calendar_path(calendar.id) %>
+  <%= link_to "#{calendar.calendar_name}のカレンダーを確認", calendar_path(calendar.id) %>
 <% end %>
 
 <% end %>

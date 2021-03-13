@@ -1,5 +1,5 @@
 class CalendarsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :show]
 
   def index
     @calendars = Calendar.all
@@ -25,6 +25,6 @@ class CalendarsController < ApplicationController
   private
 
   def calendar_params
-    params.require(:calendar).permit(:name).merge(user_id: current_user.id)
+    params.require(:calendar).permit(:calendar_name).merge(user_id: current_user.id)
   end
 end
