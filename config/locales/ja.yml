@@ -7,3 +7,7 @@ ja:
          nickname: ニックネーム
          birthday: 誕生日
          password_confirmation: パスワード(確認用)
+  activerecord:
+      calendar: カレンダー
+  attributes:
+         name: カレンダー名

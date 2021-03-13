@@ -1,0 +1,13 @@
+<h1>カレンダーを作成</h1>
+
+<%= form_with model: @calendar , local: true do |f| %>
+
+ <%= render 'shared/error_messages', model: f.object %>
+
+カレンダー名（15文字以内・変更できません）
+<%= f.text_field :name , placeholder:"入力してください" %>
+
+<%= f.submit 'カレンダー作成'%>
+
+
+<% end %>
