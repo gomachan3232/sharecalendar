@@ -20,6 +20,9 @@ class CalendarsController < ApplicationController
 
   def show
     @calendar = Calendar.find(params[:id])
+    @schedules = Schedule.all
+    @schedule = Schedule.find(params[:id])
+    redirect_to root_path unless @calendar.user_id == current_user.id
   end
 
   private

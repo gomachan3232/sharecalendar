@@ -1,7 +1,7 @@
 class Calendar < ApplicationRecord
   has_many :user_calendars
   has_many :users, through: :user_calendars
-  has_many :plans
+  has_many :schedules
 
   with_options presence: true do
     validates :calendar_name, length: { maximum: 15 }

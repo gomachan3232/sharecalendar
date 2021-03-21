@@ -8,11 +8,11 @@ RSpec.describe Calendar, type: :model do
 
   describe 'カレンダー作成' do
     context 'カレンダー作成できるとき' do
-      it 'user_idとnameがあれば作成できる' do
+      it 'user_idとcalendar_nameがあれば作成できる' do
         expect(@calendar).to be_valid
       end
-      it 'nameが15文字以内なら作成できる' do
-        @calendar.name = 'abcdefghijklmno'
+      it 'calendar_nameが15文字以内なら作成できる' do
+        @calendar.calendar_name = 'abcdefghijklmno'
         expect(@calendar).to be_valid
       end
     end
@@ -22,15 +22,15 @@ RSpec.describe Calendar, type: :model do
         @calendar.valid?
         expect(@calendar.errors.messages).to include user_id: ['が入力されていません。']
       end
-      it 'nameが15文字以上だと作成できない' do
-        @calendar.name = 'abcdefghijklmnop'
+      it 'calendar_nameが16文字以上だと作成できない' do
+        @calendar.calendar_name = 'abcdefghijklmnop'
         @calendar.valid?
-        expect(@calendar.errors.messages).to include name: ['は15文字以下に設定して下さい。']
+        expect(@calendar.errors.messages).to include calendar_name: ['は15文字以下に設定して下さい。']
       end
-      it 'nameが空だと作成できない' do
-        @calendar.name = ''
+      it 'calendar_nameが空だと作成できない' do
+        @calendar.calendar_name = ''
         @calendar.valid?
-        expect(@calendar.errors.messages).to include name: ['が入力されていません。']
+        expect(@calendar.errors.messages).to include calendar_name: ['が入力されていません。']
       end
     end
   end
