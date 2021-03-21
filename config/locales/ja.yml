@@ -1,6 +1,6 @@
 ja:
   activerecord:
-      user: ユーザー
+      
   attributes:
          email: メールアドレス
          password: パスワード
@@ -8,3 +8,7 @@ ja:
          birthday: 誕生日
          password_confirmation: パスワード(確認用)
          calendar_name: カレンダー名
+         user_id: ユーザーID
+         schedule_name: スケジュール名
+         genre_id: ジャンル
+         

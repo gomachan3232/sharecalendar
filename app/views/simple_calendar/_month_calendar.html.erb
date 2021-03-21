@@ -14,6 +14,8 @@
       </tr>
     </thead>
 
+ 
+
     <tbody>
       <% date_range.each_slice(7) do |week| %>
         <tr>
@@ -22,7 +24,14 @@
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>
-                <% passed_block.call day-1, sorted_events.fetch(day, []) %>
+                <% passed_block.call day-1, sorted_events.fetch(day, []) %><br>
+                     <% @schedules.each do |schedule| %>
+                     <% if schedule.date == day-1 %>
+                     <% if schedule.calendar_id == @calendar.id %>
+      ・<%= schedule.schedule_name %><br>
+      <% end %>
+      <% end %>
+ <% end%>
               <% end %>
             <% end %>
           <% end %>

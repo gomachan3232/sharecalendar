@@ -1,7 +1,9 @@
 <h1><%= "#{@calendar.calendar_name}のカレンダー" %></h1>
 
+<%= link_to '予定を作成', new_calendar_schedule_path(@calendar.id) %>
 
-<%= month_calendar do |date| %>
+
+<%= month_calendar  do |date| %>
   <%= date.day %>
-
-<% end %>
+ 
+<% end%>
