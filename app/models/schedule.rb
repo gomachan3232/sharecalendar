@@ -20,8 +20,4 @@ class Schedule < ApplicationRecord
     self.start_time = start_time.change(year: year, month: month, day: day)
     self.end_time = end_time.change(year: year, month: month, day: day)
   end
-
-  def start_time
-    date
-  end
 end

@@ -8,11 +8,11 @@
 <%= link_to 'ログイン', new_user_session_path %>
 <% end %>
 <% if user_signed_in? %>
-<%= current_user.nickname + "さん、ようこそ！" %>
+<%= current_user.nickname + "さん、ようこそ！" %><br>
 
 <% @calendars.each do |calendar| %>
 <% next unless current_user.id == calendar.user_id %>
-  <%= link_to "#{calendar.calendar_name}のカレンダーを確認", calendar_path(calendar.id) %>
+  <%= link_to "#{calendar.calendar_name}のカレンダーを確認", calendar_path(calendar.id) %><br>
 <% end %>
 
 <% end %>
