@@ -28,7 +28,7 @@
                      <% @schedules.each do |schedule| %>
                      <% if schedule.date == day-1 %>
                      <% if schedule.calendar_id == @calendar.id %>
-      ・<%= schedule.schedule_name %><br>
+      ・<%= link_to schedule.schedule_name, calendar_schedule_path(@calendar.id,schedule.id) %><br>
       <% end %>
       <% end %>
  <% end%>

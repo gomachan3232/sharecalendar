@@ -1,0 +1,15 @@
+<h1><%= @schedule.schedule_name + "の予定" %></h1>
+
+日程
+<%= @schedule.date.year %>年<%= @schedule.date.month %>月<%= @schedule.date.day %>日<br>
+
+時間
+<%= @schedule.start_time.strftime("%H時%M分") %>〜<%= @schedule.end_time.strftime("%H時%M分") %><br>
+
+ジャンル
+<%= @genre.name %><br>
+
+コメント
+<%= @schedule.comment %><br>
+
+<%= link_to 'この予定を編集' , edit_calendar_schedule_path(@calendar.id,@schedule.id) %>
