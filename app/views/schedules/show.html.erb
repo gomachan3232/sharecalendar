@@ -12,4 +12,5 @@
 コメント
 <%= @schedule.comment %><br>
 
-<%= link_to 'この予定を編集' , edit_calendar_schedule_path(@calendar.id,@schedule.id) %>
+<%= link_to '予定を編集' , edit_calendar_schedule_path(@calendar.id,@schedule.id) %>
+<%= link_to '予定を削除' , calendar_schedule_path(@calendar.id,@schedule.id),method: :delete ,data: { confirm: 'この予定を本当に削除しますか？' }%>
