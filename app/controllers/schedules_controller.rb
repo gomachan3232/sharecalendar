@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update]
-  before_action :correct_user, only: [:new, :create, :show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :schedule_find, only: [:show, :edit, :update]
 
   def new
@@ -28,6 +28,10 @@ class SchedulesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @schedule = Schedule.destroy(params[:id])
   end
 
   private
