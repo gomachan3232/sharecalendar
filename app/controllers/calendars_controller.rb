@@ -1,5 +1,5 @@
 class CalendarsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: [:new, :create, :show, :destroy]
 
   def index
     @calendars = Calendar.all
@@ -22,6 +22,10 @@ class CalendarsController < ApplicationController
     @calendar = Calendar.find(params[:id])
     @schedules = Schedule.all
     redirect_to root_path unless @calendar.user_id == current_user.id
+  end
+
+  def destroy
+    @calendar = Calendar.destroy(params[:id])
   end
 
   private
