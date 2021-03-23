@@ -7,3 +7,5 @@
   <%= date.day %>
  
 <% end%>
+
+<%= link_to 'カレンダーを削除' , calendar_path(@calendar.id),method: :delete, data: { confirm: 'このカレンダーを本当に削除しますか？' } %>
