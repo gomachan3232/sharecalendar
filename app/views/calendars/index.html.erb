@@ -1,6 +1,6 @@
 <h1>ShareCalendar</h1>
 <% if user_signed_in? %>
-<%= link_to 'カレンダーを共有', '' %>
+<%= link_to 'カレンダーを共有', share_user_calendars_path %>
 <%= link_to '新たなカレンダーを作成', new_calendar_path %>
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <% else %>
@@ -15,6 +15,10 @@
   <%= link_to "#{calendar.calendar_name}のカレンダーを確認", calendar_path(calendar.id) %><br>
 <% end %>
 
+<% @share_calendars.each do |share_calendar| %>
+<% next unless current_user.id == share_calendar.user_id %>
+  <%= link_to "#{share_calendar.calendar.calendar_name}のカレンダーを確認", calendar_path(share_calendar.calendar_id,share_calendar: share_calendar.id) %><br>
+<% end %>
 <% end %>
 
 
