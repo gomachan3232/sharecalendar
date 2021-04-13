@@ -9,6 +9,7 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*\d)[a-z\d]+\z/i }
     validates :birthday
   end
-  has_many :user_calenders
-  has_many :calenders, through: :user_calenders
+  has_many :calenders
+  has_many :share_calendars
+  has_many :schedules
 end

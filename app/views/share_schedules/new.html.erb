@@ -1,0 +1,29 @@
+<h1>スケジュール作成</h1>
+
+<%= form_with model: @share_schedule, url: share_calendar_share_schedules_path, local: true do |f| %>
+
+<%= render 'shared/error_messages', model: f.object %>
+
+日程
+<%= f.date_select :date %>
+
+スケジュール名
+<%= f.text_field :schedule_name %>
+
+ジャンル
+<%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+
+開始時間
+<%= f.time_select(:start_time, prompt:'--',:minute_step => 5,time_zone: 'Tokyo') %>
+
+終了時間
+<%= f.time_select(:end_time, prompt:'--',:minute_step => 5) %>
+
+コメント
+<%= f.text_area :comment %>
+
+<%= f.submit '作成' %>
+
+
+
+<% end %>

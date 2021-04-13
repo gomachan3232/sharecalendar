@@ -1,9 +1,16 @@
 class CalendarsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :show, :destroy, :share_user, :share_calendar, :share_calendar_create]
+  before_action :correct_user, only: [:show]
+  before_action :all_share_calendars, only: [:index, :share_calendar, :share_calendar_create]
+  before_action :all_calendars, only: [:index, :share_calendar, :share_calendar_create]
 
   def index
-    @calendars = Calendar.all
-    @share_calendars = ShareCalendar.all
+    @schedules = Schedule.all.order(date: :asc)
+    @week_schedules = @schedules.where(date: Date.today...Date.today.since(8.days))
+    if user_signed_in?
+      @share_calendar_ids = current_user.share_calendars.pluck(:calendar_id)
+      @calendar_ids = Calendar.where(user_id: current_user.id)
+    end
   end
 
   def new
@@ -20,7 +27,6 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    @calendar = Calendar.find(params[:id])
     @schedules = Schedule.all
   end
 
@@ -38,19 +44,15 @@ class CalendarsController < ApplicationController
 
   def share_calendar
     @user = User.find(params[:id])
-    @calendars = Calendar.all
-    @share_calendars = ShareCalendar.all
   end
 
   def share_calendar_create
     @calendar = Calendar.find(params[:id])
     @user = User.find(params[:user_id])
     @share_calendar = ShareCalendar.new(calendar_id: params[:id], user_id: @user.id)
-    @share_calendars = ShareCalendar.all
     @share_calendars.each do |share_calendar|
       next unless share_calendar.user_id == @share_calendar.user_id && share_calendar.calendar_id == @share_calendar.calendar_id
 
-      @calendars = Calendar.all
       flash.now[:alert] = "#{@share_calendar.calendar.calendar_name}のカレンダーは既に共有されています"
       render :share_calendar
       return
@@ -62,5 +64,18 @@ class CalendarsController < ApplicationController
 
   def calendar_params
     params.require(:calendar).permit(:calendar_name).merge(user_id: current_user.id)
+  end
+
+  def correct_user
+    @calendar = Calendar.find(params[:id])
+    redirect_to root_path unless @calendar.user_id == current_user.id
+  end
+
+  def all_share_calendars
+    @share_calendars = ShareCalendar.all
+  end
+
+  def all_calendars
+    @calendars = Calendar.all
   end
 end
