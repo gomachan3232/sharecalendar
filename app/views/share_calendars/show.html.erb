@@ -1,0 +1,11 @@
+<h1><%= "#{@share_calendar.calendar.calendar_name}のカレンダー" %></h1>
+
+<%= link_to '予定を作成', new_share_calendar_share_schedule_path(@share_calendar.id) %>
+
+
+<%= month_calendar  do |date| %>
+  <%= date.day %>
+ 
+<% end%>
+
+<%= link_to 'カレンダーの共有を解除' , share_calendar_path(@share_calendar.id),method: :delete, data: { confirm: 'このカレンダーの共有を本当に解除しますか？' } %>

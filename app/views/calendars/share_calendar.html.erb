@@ -1,0 +1,19 @@
+<h1><%= "#{@user.nickname}" + "さんとシェアするカレンダーを選択" %></h1>
+
+<%= current_user.nickname + "さんのカレンダーを共有" %><br>
+<% @calendars.each do |calendar| %>
+  <% next unless current_user.id == calendar.user_id %>
+      <%= link_to "#{calendar.calendar_name}のカレンダー", share_calendar_create_calendar_path(calendar.id, user_id: @user.id),method: :post,data: { confirm: "#{calendar.calendar_name}のカレンダーを#{@user.nickname}さんと共有しますか？" } %><br>
+<% end %>
+
+
+ 
+ <% @share_calendars.each do |share_calendar| %>
+  <% next unless share_calendar.user_id == @user.id && share_calendar.calendar.user_id == current_user.id %>
+    <%= share_calendar.calendar.calendar_name + "のカレンダーは共有済み" %><br>
+<% end %>
+
+<%= link_to 'トップページへ戻る' , root_path %>
+
+
+

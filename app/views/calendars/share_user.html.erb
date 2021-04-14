@@ -1,0 +1,31 @@
+<h1>カレンダーを共有</h1>
+
+<%= current_user.nickname + "さんのカレンダーを共有" %><br>
+
+
+共有したいユーザーのメールアドレスを入力してください。
+
+<%= form_with url: share_user_calendars_path , method: :get, local: true do |f|  %>
+  <%= f.text_field :email ,placeholder: "ユーザーを検索"%>
+  <%= f.submit :検索 %>
+<% end %>
+
+<% if params[:email].present? %>
+  <%= params[:email] + "の検索結果"  %><br>
+  <% unless @user.present?  %>
+    <%= "ユーザーが見つかりませんでした" %>
+  <% end %>
+<% end %>
+
+<% @user.each do |user| %>
+  <% if current_user.email == user.email %>
+    <%= "現在のユーザーです" %>
+  <% else %>
+    <%= link_to "#{user.nickname}" + "さんとカレンダーを共有する" , share_calendar_calendar_path(user.id) %>
+  <% end %>
+<% end %>
+
+  
+
+
+

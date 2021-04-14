@@ -1,0 +1,2 @@
+module ShareSchedulesHelper
+end
