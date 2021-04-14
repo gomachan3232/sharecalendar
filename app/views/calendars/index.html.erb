@@ -22,7 +22,7 @@
 
 <%= "一週間の予定" %><%= Date.today.strftime("(%m/%d") %><%= Date.today.since(7.days).strftime("~%m/%d)") %><br>
 <% @week_schedules.each do |schedule| %>
-  <% next unless @calendar_ids.ids.include?(schedule.calendar_id) %>
+  <% next unless @my_calendars.ids.include?(schedule.calendar_id) %>
   <%= schedule.calendar.calendar_name + "のカレンダー"%>
   <%= schedule.schedule_name %>
   <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %>  <br>
@@ -32,7 +32,7 @@
 <%= " 共有されているカレンダー" %><br>
 
 <% @week_schedules.each do |schedule| %>
-  <% if @share_calendar_ids.include?(schedule.calendar_id) %>
+  <% if @my_share_calendars.include?(schedule.calendar_id) %>
   <%= schedule.calendar.calendar_name + "のカレンダー" %>
   <%= schedule.schedule_name %>
   <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %><br>

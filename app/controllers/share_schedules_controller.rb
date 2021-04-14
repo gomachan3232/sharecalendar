@@ -1,6 +1,7 @@
 class ShareSchedulesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :share_schedule_find, only: [:show, :edit, :edit, :update]
+  before_action :correct_user
 
   def new
     @share_schedule = Schedule.new
@@ -47,5 +48,10 @@ class ShareSchedulesController < ApplicationController
 
   def share_schedule_find
     @schedule = Schedule.find(params[:id])
+  end
+
+  def correct_user
+    @share_calendar = ShareCalendar.find(params[:share_calendar_id])
+    redirect_to root_path unless @share_calendar.user_id == current_user.id
   end
 end

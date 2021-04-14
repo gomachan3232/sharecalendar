@@ -27,12 +27,10 @@
               <% else %>
                 <% passed_block.call day-1, sorted_events.fetch(day, []) %><br>
                      <% @schedules.each do |schedule| %>
-                     <% if schedule.date == day-1 %>
-                     <% if schedule.calendar_id == @calendar.id %>
-      ・<%= link_to schedule.schedule_name, calendar_schedule_path(@calendar.id,schedule.id) %><br>
-      <% end %>
-      <% end %>
- <% end%>
+                        <% if schedule.date == day-1 && schedule.calendar_id == @calendar.id %>
+                          ・<%= link_to schedule.schedule_name, calendar_schedule_path(@calendar.id,schedule.id) %><br>
+                        <% end %>
+                     <% end%>
               <% end %>
             <% end %>
           <% end %>
@@ -73,12 +71,10 @@
               <% else %>
                 <% passed_block.call day-1, sorted_events.fetch(day, []) %><br>
                      <% @schedules.each do |schedule| %>
-                     <% if schedule.date == day-1 %>
-                     <% if schedule.calendar_id == @share_calendar.calendar_id %>
-      ・<%= link_to schedule.schedule_name, share_calendar_share_schedule_path(@share_calendar.id,schedule.id) %><br>
-      <% end %>
-      <% end %>
- <% end%>
+                       <% if schedule.date == day-1 && schedule.calendar_id == @share_calendar.calendar_id %>
+                         ・<%= link_to schedule.schedule_name, share_calendar_share_schedule_path(@share_calendar.id,schedule.id) %><br>
+                       <% end %>
+                     <% end %>
               <% end %>
             <% end %>
           <% end %>

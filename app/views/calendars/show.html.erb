@@ -2,10 +2,8 @@
 
 <%= link_to '予定を作成', new_calendar_schedule_path(@calendar.id) %>
 
-
 <%= month_calendar  do |date| %>
   <%= date.day %>
- 
 <% end%>
 
 <%= link_to 'カレンダーを削除' , calendar_path(@calendar.id),method: :delete, data: { confirm: 'このカレンダーを本当に削除しますか？' } %>
