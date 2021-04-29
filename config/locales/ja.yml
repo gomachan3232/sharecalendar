@@ -5,10 +5,9 @@ ja:
          email: メールアドレス
          password: パスワード
          nickname: ニックネーム
-         birthday: 誕生日
+         birthday: 生年月日
          password_confirmation: パスワード(確認用)
          calendar_name: カレンダー名
          user_id: ユーザーID
          schedule_name: スケジュール名
          genre_id: ジャンル
-         

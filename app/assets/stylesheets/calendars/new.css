@@ -1,0 +1,33 @@
+.calendar-new-page{
+  background-color: #2e6c83;
+  text-align: center;
+  height: calc(100vh - 80px);
+}
+
+.calendar-new{
+  font-size: 50px;
+  padding-top: 70px;
+  font-weight: bold;
+  color: #ced7e1;
+}
+
+.calendar-new-name{
+  font-size: 25px;
+  margin-top: 50px;
+  color: #ced7e1;
+}
+
+.calendar-new-form{
+  font-size: 40px;
+  padding: 3px 30px;
+  margin-top: 30px;
+}
+
+.calendar-new-button{
+  font-size: 25px;
+  margin-top: 70px;
+  padding: 5px 10px;
+  color: #ced7e1;
+  border: double 10px #50728b;
+  color: #50728b;
+}

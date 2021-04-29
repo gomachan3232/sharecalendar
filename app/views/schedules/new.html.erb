@@ -1,29 +1,51 @@
-<h1><%= "スケジュール作成" %></h1>
+<%= render "shared/header" %>
 
-<%= form_with model: @schedule, url: calendar_schedules_path, method: :post, local: true do |f| %>
+<div class='schedule-new-page'>
 
-<%= render 'shared/error_messages', model: f.object %>
+  <div class='schedule-new-name'>
+    <%= "＜スケジュール作成＞" %>
+  </div>
 
-日程
-<%= f.date_select :date %>
+  <%= form_with model: @schedule,class: 'schedule-form', url: calendar_schedules_path, method: :post, local: true do |f| %>
 
-スケジュール名
-<%= f.text_field :schedule_name %>
+  <%= render 'shared/error_messages', model: f.object %>
 
-ジャンル
-<%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+  <label class='schedule-form-text'>
+  　　　日程　
+  <%= f.date_select :date %>
+  </label>
 
-開始時間
-<%= f.time_select(:start_time, prompt:'--',:minute_step => 5,time_zone: 'Tokyo') %>
+  <label class='schedule-form-text'>
+  スケジュール名　
+  <span class='indispensable'>必須</span>
+  <%= f.text_field :schedule_name %>
+  </label>
 
-終了時間
-<%= f.time_select(:end_time, prompt:'--',:minute_step => 5) %>
+  <label class='schedule-form-text'>
+  ジャンル　
+  <span class='indispensable'>必須</span>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+  </label>
 
-コメント
-<%= f.text_area :comment %>
+  <label class='schedule-form-text'>
+  開始時間　
+  <%= f.time_select(:start_time, prompt:'--',:minute_step => 5,time_zone: 'Tokyo') %>
+  </label>
 
-<%= f.submit '作成' %>
+  <label class='schedule-form-text'>
+  終了時間　
+  <%= f.time_select(:end_time, prompt:'--',:minute_step => 5) %>
+  </label>
+
+  <label class='schedule-form-text'>
+  　　コメント　
+  <%= f.text_area :comment %>
+  </label>
+
+  <%= f.submit 'スケジュール作成',class:'schedule-button' %>
 
 
 
-<% end %>
+  <% end %>
+
+</div>

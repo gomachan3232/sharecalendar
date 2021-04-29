@@ -1,5 +1,17 @@
-<h1><%= "編集が完了しました" %></h1>
+<%= render "shared/header" %>
 
-<%= link_to "#{@calendar.calendar_name}のカレンダーに戻る", calendar_path(@calendar.id) %>
+<%# share_calendar_createページと同じCSSを使っています %>
 
-<%= link_to "トップページに戻る", root_path %>
+<div class='share-calender-create-page'>
+
+  <div class='completed'>
+    <%= "スケジュールの変更が完了しました" %>
+  </div>
+
+  <div class='top-page-return'>
+    <%= link_to "#{@calendar.calendar_name}のカレンダーに戻る", calendar_path(@calendar.id) %>
+
+    <%= link_to "トップページに戻る", root_path %>
+  </div>
+  
+</div>

@@ -1,0 +1,38 @@
+.login-name{
+  font-size: 60px;
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.login-form{
+  width: 50vw;
+  margin-top: 15vh;
+}
+
+.session-form-text{
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 5vh;
+  font-weight: bold;
+}
+
+.form-view{
+  font-size: 30px;
+}
+
+.login-button{
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.login-button-view{
+  font-size: 40px;
+  border-radius: 100px;
+  border: solid 5px #86b1c1;
+  color: #50728b;
+  padding: 10px 30px;
+  font-weight: bold;
+}

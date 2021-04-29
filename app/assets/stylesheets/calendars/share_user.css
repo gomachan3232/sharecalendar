@@ -1,0 +1,62 @@
+.login-user-name-share{
+  background-color: #2e6c83;
+  color: #ced7e1;
+  font-size: 30px;
+  height: 40px;
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+.share-user-page{
+  background-color: #2e6c83;
+  height: calc(100vh - 130px);
+  text-align: center;
+}
+
+.share-user-input{
+  font-size: 30px;
+  padding-top: 50px;
+  color: #ced7e1;
+}
+
+.form-share-user{
+  font-size: 100px;
+  padding: 100px 0;
+}
+
+.search-share-user{
+  font-size: 30px;
+  margin-top: 70px;
+}
+
+.search-share-button{
+  font-size: 23px;
+  background-color: #ced7e1;
+}
+
+.share-user-result{
+  font-size: 30px;
+  margin-top: 50px;
+  color: #ced7e1;
+}
+
+.share-user-none{
+  font-size: 30px;
+  margin-top: 70px;
+  color: #ced7e1;
+}
+
+.share-user-nickname {
+  text-decoration: none;
+  font-size: 40px;
+  margin-top: 70px;
+  border: 10px double #2e6c83;
+  display: inline-block;
+  font-weight: bold;
+  background-color: #ced7e1;
+}
+
+.share-user-nickname a{
+  text-decoration: none;
+  color: #2e6c83;
+}

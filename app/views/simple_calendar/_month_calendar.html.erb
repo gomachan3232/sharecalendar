@@ -1,9 +1,16 @@
 <% if @calendar.present? %>
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '前の月'), calendar.url_for_previous_view %>
+    <div class="schedule-create">
+      <%= link_to '予定を作成', new_calendar_schedule_path(@calendar.id) %>
+    </div>
+    <div class="calendar-previous">
+      <%= link_to t('simple_calendar.previous', default: '前の月'), calendar.url_for_previous_view %>
+    </div>
     <span class="calendar-title"><%= start_date.year %>年 <%= t('date.month_names')[start_date.month] %> </span>
-    <%= link_to t('simple_calendar.next', default: '次の月'), calendar.url_for_next_view %>
+    <div class="calendar-next">
+      <%= link_to t('simple_calendar.next', default: '次の月'), calendar.url_for_next_view %>
+    </div>
   </div>
 
   <table class="table table-striped">
@@ -28,7 +35,9 @@
                 <% passed_block.call day-1, sorted_events.fetch(day, []) %><br>
                      <% @schedules.each do |schedule| %>
                         <% if schedule.date == day-1 && schedule.calendar_id == @calendar.id %>
-                          ・<%= link_to schedule.schedule_name, calendar_schedule_path(@calendar.id,schedule.id) %><br>
+                          <div class="schedule-name">
+                            <%= link_to schedule.schedule_name, calendar_schedule_path(@calendar.id,schedule.id) %>
+                          </div>
                         <% end %>
                      <% end%>
               <% end %>
@@ -45,9 +54,16 @@
 <% if @share_calendar.present? %>
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '前の月'), calendar.url_for_previous_view %>
+    <div class="schedule-create">
+      <%= link_to '予定を作成', new_share_calendar_share_schedule_path(@share_calendar.id) %>
+    </div>
+    <div class="calendar-previous">
+      <%= link_to t('simple_calendar.previous', default: '前の月'), calendar.url_for_previous_view %>
+    </div>
     <span class="calendar-title"><%= start_date.year %>年 <%= t('date.month_names')[start_date.month] %> </span>
-    <%= link_to t('simple_calendar.next', default: '次の月'), calendar.url_for_next_view %>
+    <div class="calendar-next">
+      <%= link_to t('simple_calendar.next', default: '次の月'), calendar.url_for_next_view %>
+    </div>
   </div>
 
   <table class="table table-striped">
@@ -72,7 +88,9 @@
                 <% passed_block.call day-1, sorted_events.fetch(day, []) %><br>
                      <% @schedules.each do |schedule| %>
                        <% if schedule.date == day-1 && schedule.calendar_id == @share_calendar.calendar_id %>
-                         ・<%= link_to schedule.schedule_name, share_calendar_share_schedule_path(@share_calendar.id,schedule.id) %><br>
+                        <div class="schedule-name">
+                          <%= link_to schedule.schedule_name, share_calendar_share_schedule_path(@share_calendar.id,schedule.id) %>
+                        </div>
                        <% end %>
                      <% end %>
               <% end %>

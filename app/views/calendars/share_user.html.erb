@@ -1,29 +1,45 @@
-<h1>カレンダーを共有</h1>
 
-<%= current_user.nickname + "さんのカレンダーを共有" %><br>
+<%= render "shared/header" %>
 
+<div class='login-user-name-share'>
+  <%= current_user.nickname + "さんのカレンダーを共有" %>
+</div>
 
-共有したいユーザーのメールアドレスを入力してください。
+<div class='share-user-page'>
 
-<%= form_with url: share_user_calendars_path , method: :get, local: true do |f|  %>
-  <%= f.text_field :email ,placeholder: "ユーザーを検索"%>
-  <%= f.submit :検索 %>
-<% end %>
+  <div class='share-user-input'>
+    共有したいユーザーのメールアドレスを入力してください。
+  </div>
 
-<% if params[:email].present? %>
-  <%= params[:email] + "の検索結果"  %><br>
-  <% unless @user.present?  %>
-    <%= "ユーザーが見つかりませんでした" %>
+    <%= form_with url: share_user_calendars_path , method: :get, local: true do |f|  %>
+      <%= f.text_field :email ,class: 'search-share-user', placeholder: "ユーザーを検索"%>
+      <%= f.submit :検索,class: 'search-share-button' %>
+    <% end %>
+
+  <% if params[:email].present? %>
+    <div class='share-user-result'>
+      <%= params[:email] + "の検索結果"  %><br>
+    </div>
+    <% unless @user.present?  %>
+      <div class='share-user-none'>
+        <%= "ユーザーが見つかりませんでした" %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<% @user.each do |user| %>
-  <% if current_user.email == user.email %>
-    <%= "現在のユーザーです" %>
-  <% else %>
-    <%= link_to "#{user.nickname}" + "さんとカレンダーを共有する" , share_calendar_calendar_path(user.id) %>
+  <% @user.each do |user| %>
+    <% if current_user.email == user.email %>
+      <div class='share-user-none'>
+        <%= "現在のユーザーです" %>
+      </div>
+    <% else %>
+      <div class='share-user-nickname'>
+        <%= link_to "#{user.nickname}" + "さんとカレンダーを共有する" , share_calendar_calendar_path(user.id) %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>
 
   
 

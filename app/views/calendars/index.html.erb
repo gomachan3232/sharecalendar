@@ -1,47 +1,89 @@
-<h1>ShareCalendar</h1>
+
 <% if user_signed_in? %>
-<%= link_to 'カレンダーを共有', share_user_calendars_path %>
-<%= link_to '新たなカレンダーを作成', new_calendar_path %>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <%= render "shared/header" %>
+
+    <div class='login-user-name'>
+      <%= current_user.nickname + "さん、ようこそ！" %>
+    </div>
+
+  <div class='top-page'>
+    <div class='week-schedule'>
+      <div class='week-schedule-name'>
+        <%= "一週間の予定" %><%= Date.today.strftime("(%m/%d") %><%= Date.today.since(7.days).strftime("~%m/%d)") %>
+      </div>
+      <ul class='schedules'>
+        <% @week_schedules.each do |schedule| %>
+          <% next unless @my_calendars.ids.include?(schedule.calendar_id) %>
+          <li class='schedule'>
+            <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %>  
+            <%= schedule.schedule_name %>
+            <%= "@" + schedule.calendar.calendar_name + "のカレンダー"%>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class='week-share-schedule-name'>
+        <%= " ＜共有されているカレンダーの予定＞" %>
+      </div>
+
+      <ul class='schedules'>
+        <% @week_schedules.each do |schedule| %>
+          <% if @my_share_calendars.include?(schedule.calendar_id) %>
+            <li class='schedule'>
+              <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %>
+              <%= schedule.schedule_name %>
+              <%= "@" + schedule.calendar.calendar_name + "のカレンダー" %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class='calendars'>
+      <div class='calendars-check'>
+        <%= "＜カレンダーを確認＞" %>
+      </div>
+      <div class='calendar'>
+        <% @calendars.each do |calendar| %>
+          <% next unless current_user.id == calendar.user_id %>
+            <%= link_to "#{calendar.calendar_name}のカレンダー", calendar_path(calendar.id) %><br>      
+        <% end %>
+      </div>
+
+      <div class='calendars-check'>
+        <%= "＜共有されているカレンダーを確認＞" %>
+      </div>
+      <div class='calendar'>
+        <% @share_calendars.each do |share_calendar| %>
+          <% next unless current_user.id == share_calendar.user_id %>
+            <%= link_to "#{share_calendar.calendar.calendar_name}のカレンダー", share_calendar_path(share_calendar.id) %><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
 <% else %>
-<%= link_to '新規登録', new_user_registration_path %>
-<%= link_to 'ログイン', new_user_session_path %>
-<% end %>
-<% if user_signed_in? %>
-<%= current_user.nickname + "さん、ようこそ！" %><br>
 
-<% @calendars.each do |calendar| %>
-<% next unless current_user.id == calendar.user_id %>
-  <%= link_to "#{calendar.calendar_name}のカレンダーを確認", calendar_path(calendar.id) %><br>
-<% end %>
+  <div class='logout'>
+  <%= image_tag 'top-page.jpg',class:'img' %>
+    <div class='logout-title'>
+      <div class='logout-title-name'>
+        <%= "Share Calendar" %>
+      </div>
+      <div class='logout-sub-title-name'>
+        <%= "〜　友達、家族、同僚、どんな人とでも"%><br><%= "　　　シェアできるカレンダー　〜" %>
+      </div>
+    </div>
 
-<% @share_calendars.each do |share_calendar| %>
-<% next unless current_user.id == share_calendar.user_id %>
-  <%= link_to "#{share_calendar.calendar.calendar_name}のカレンダーを確認＜共有＞", share_calendar_path(share_calendar.id) %><br>
-<% end %>
-
-<%= "一週間の予定" %><%= Date.today.strftime("(%m/%d") %><%= Date.today.since(7.days).strftime("~%m/%d)") %><br>
-<% @week_schedules.each do |schedule| %>
-  <% next unless @my_calendars.ids.include?(schedule.calendar_id) %>
-  <%= schedule.calendar.calendar_name + "のカレンダー"%>
-  <%= schedule.schedule_name %>
-  <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %>  <br>
-  
-<% end %>
-
-<%= " 共有されているカレンダー" %><br>
-
-<% @week_schedules.each do |schedule| %>
-  <% if @my_share_calendars.include?(schedule.calendar_id) %>
-  <%= schedule.calendar.calendar_name + "のカレンダー" %>
-  <%= schedule.schedule_name %>
-  <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %><br>
-
-  <% end %>
+    <div class='logout-category'>
+      <ul class='logout-category-name'>
+        <li><%= link_to '新規登録', new_user_registration_path %></li>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+      </ul>
+    </div>
+    
+  </div>
 
 <% end %>
 
-
-
-
-<% end %>

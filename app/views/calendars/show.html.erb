@@ -1,9 +1,17 @@
-<h1><%= "#{@calendar.calendar_name}のカレンダー" %></h1>
+<%= render "shared/header" %>
 
-<%= link_to '予定を作成', new_calendar_schedule_path(@calendar.id) %>
+<div class='calendar-show-page'>
 
-<%= month_calendar  do |date| %>
-  <%= date.day %>
-<% end%>
+  <div class='calendar-name'>
+    <%= "＜#{@calendar.calendar_name}のカレンダー＞" %>
+  </div>
 
-<%= link_to 'カレンダーを削除' , calendar_path(@calendar.id),method: :delete, data: { confirm: 'このカレンダーを本当に削除しますか？' } %>
+  <%= month_calendar  do |date| %>
+    <%= date.day %>
+  <% end%>
+  
+  <div class='calendar-delete'>
+    <%= link_to 'カレンダーを削除' , calendar_path(@calendar.id),method: :delete, data: { confirm: 'このカレンダーを本当に削除しますか？' } %>
+  </div>
+
+</div>

@@ -1,0 +1,33 @@
+.top-page-header{
+  display: flex;
+  background-color: #2e6c83;
+}
+
+.title a {
+  font-size: 50px;
+  text-decoration: none;
+  color: #86b1c1;
+  font-weight: bold;
+}
+
+.lists {
+  list-style: none;
+  display: flex;
+  margin: 0 0 0 auto ;
+  align-items: flex-end;
+}
+
+ul.lists li a{
+  text-decoration: none;
+  border: solid 3px #86b1c1;
+  border-radius: 100px;
+  color:  #50728b;
+  margin-right: 50px;
+  background-color: #f5ebe0;
+  font-size: 21px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+
+

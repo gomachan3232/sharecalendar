@@ -1,0 +1,46 @@
+.registration-form{
+  width: 50vw;
+  margin-top: 20vh;
+}
+
+.registration-form-text{
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  margin: 20px 10px 20px 0;
+  color: #fffff0;
+}
+
+.input-name{
+  font-size: 15px;
+  margin-left: 1vw;
+  padding-right: 5vw;
+}
+
+.indispensable{
+  background-color: #ea352d;
+  color: #fff;
+  padding: 3px;
+  font-size: 16px;
+}
+
+.registration-birthday-text{
+  text-align: center;
+  padding-right: 5vw;
+  margin-left: 1vw;
+  font-size: 17px;
+}
+
+.registration-button{
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.registration-button-view{
+  font-size: 40px;
+  border-radius: 100px;
+  border: solid 5px #86b1c1;
+  color: #50728b;
+  padding: 10px 30px;
+}
+
