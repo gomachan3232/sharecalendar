@@ -11,11 +11,11 @@
 
   <body>
    <% if flash[:notice] %>
-      <div class="time-limit">
+      <div class="time-limit-notice">
         <%= flash[:notice] %>
       </div>
     <% else flash[:alert] %>
-      <div class="time-limit">
+      <div class="time-limit-alert">
         <%= flash[:alert] %>
       </div>
     <% end %>

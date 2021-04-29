@@ -1,0 +1,46 @@
+.share-calendar-page{
+  background-color: #2e6c83;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+.share-calendar-select{
+  text-align: center;
+  font-size: 45px;
+  padding-top: 50px;
+  color: #ced7e1;
+  font-weight: bold;
+}
+
+.current-user-share{
+  font-size: 30px;
+  text-align: center;
+  padding: 20px 0;
+  color: #ced7e1;
+}
+
+.current-user-share-calendar{
+  text-align: center;
+  background-color: #2e6c83;
+}
+
+.current-user-share-calendar a{
+  text-decoration: none;
+  font-size: 30px;
+  display: inline-block;
+  width: 60%;
+  border: double 10px #50728b;
+  color: #50728b;
+  padding: 5px 20px;
+  margin: 10px 10px;
+  font-weight: bold;
+  background-color: #ced7e1;
+}
+
+.shared-calendar{
+  text-align: center;
+  color: #ced7e1;
+  font-size: 30px;
+  padding-top: 10px;
+  background-color: #2e6c83;
+}

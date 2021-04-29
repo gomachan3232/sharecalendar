@@ -1,0 +1,12 @@
+
+.time-limit-alert{
+  background-color: #F35500;
+  color: white;
+  text-align: center;
+}
+
+.time-limit-notice{
+  background-color: #73c2dd;
+  color: white;
+  text-align: center;
+}

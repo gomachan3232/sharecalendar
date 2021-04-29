@@ -1,20 +1,45 @@
-<h1><%= "タイトル:  " + @schedule.schedule_name  %></h1>
+<%= render "shared/header" %>
 
-日程
-<%= @schedule.date.year %>年<%= @schedule.date.month %>月<%= @schedule.date.day %>日<br>
+<div class='schedule-show-page'>
 
-時間
-<%= @schedule.start_time.strftime("%H時%M分") %>〜<%= @schedule.end_time.strftime("%H時%M分") %><br>
+  <div class='schedule-show-name'>
+    <%= "＜スケジュール確認＞" %>
+  </div>
 
-ジャンル
-<%= @genre.name %><br>
+  <div class='schedule-show-text'>
 
-コメント
-<%= @schedule.comment %><br>
+    <div class='schedule-category'>
+      <%= "タイトル:  " + @schedule.schedule_name  %>
+    </div>
 
+    <div class='schedule-category'>
+      日程:
+      <%= @schedule.date.year %>年<%= @schedule.date.month %>月<%= @schedule.date.day %>日
+    </div>
 
-<%= link_to '予定を編集' , edit_calendar_schedule_path(@calendar.id,@schedule.id) %>
-<%= link_to '予定を削除' , calendar_schedule_path(@calendar.id,@schedule.id),method: :delete ,data: { confirm: 'この予定を本当に削除しますか？' }%>
+    <div class='schedule-category'>
+      時間:
+      <%= @schedule.start_time.strftime("%H時%M分") %>〜<%= @schedule.end_time.strftime("%H時%M分") %>
+    </div>
+
+    <div class='schedule-category'>
+      ジャンル:
+      <%= @genre.name %>
+    </div>
+
+    <div class='schedule-category'>
+      コメント:
+      <%= @schedule.comment %>
+    </div>
+
+    <div class='schedule-change'>
+      <%= link_to '予定を編集' , edit_calendar_schedule_path(@calendar.id,@schedule.id) %>
+      <%= link_to '予定を削除' , calendar_schedule_path(@calendar.id,@schedule.id),method: :delete ,data: { confirm: 'この予定を本当に削除しますか？' }%>
+    </div>
+    
+  </div>
+
+</div>
 
 
 

@@ -1,5 +1,7 @@
 .simple-calendar {
-  .day {}
+  .day {
+   
+  }
 
   .wday-0 {
       color: red;
@@ -13,18 +15,23 @@
     color: blue;
   }
 
-  .today {}
+  .current-month.today {
+    background-color:  #FFFF8F;
+  }
   .past {}
   .future {}
 
   .start-date {}
 
   .prev-month {}
-  .next-month { }
-  .current-month {}
+  .next-month {}
+  .current-month {
+    background-color: white;
+  }
 
   .has-events {}
 
   .table-striped{
+    background-color: white;
   }
 }

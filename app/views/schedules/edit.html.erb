@@ -1,29 +1,51 @@
-<h1><%= "スケジュール編集" %></h1>
+<%= render "shared/header" %>
 
-<%= form_with model: @schedule, url: calendar_schedule_path, method: :patch, local: true do |f| %>
+<%# schedule/newと同じCSSを使っています %>
 
-<%= render 'shared/error_messages', model: f.object %>
+<div class='schedule-new-page'>
 
-日程
-<%= f.date_select :date %>
+  <div class='schedule-new-name'>
+    <%= "＜スケジュール編集＞" %>
+  </div>
 
-スケジュール名
-<%= f.text_field :schedule_name %>
+  <%= form_with model: @schedule,class: 'schedule-form', url: calendar_schedule_path, method: :patch, local: true do |f| %>
 
-ジャンル
-<%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+  <%= render 'shared/error_messages', model: f.object %>
 
-開始時間
-<%= f.time_select(:start_time, prompt:'--',:minute_step => 5,time_zone: 'Tokyo') %>
+  <label class='schedule-form-text'>
+  　　　日程　
+  <%= f.date_select :date %>
+  </label>
 
-終了時間
-<%= f.time_select(:end_time, prompt:'--',:minute_step => 5) %>
+  <label class='schedule-form-text'>
+  スケジュール名　
+  <span class='indispensable'>必須</span>
+  <%= f.text_field :schedule_name %>
+  </label>
 
-コメント
-<%= f.text_area :comment %>
+  <label class='schedule-form-text'>
+  ジャンル　
+  <span class='indispensable'>必須</span>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+  </label>
 
-<%= f.submit '編集' %>
+  <label class='schedule-form-text'>
+  開始時間　
+  <%= f.time_select(:start_time, prompt:'--',:minute_step => 5,time_zone: 'Tokyo') %>
+  </label>
 
+  <label class='schedule-form-text'>
+  終了時間　
+  <%= f.time_select(:end_time, prompt:'--',:minute_step => 5) %>
+  </label>
 
+  <label class='schedule-form-text'>
+  　　コメント　
+  <%= f.text_area :comment %>
+  </label>
 
-<% end %>
+  <%= f.submit 'スケジュール変更',class:'schedule-button' %>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,145 @@
+.top-page{
+  background-color: #2e6c83;
+  display: flex;
+  height: 100vh;
+}
+
+.login-user-name{
+  background-color: #2e6c83;
+  color: #ced7e1;
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+.week-schedule{
+  text-align: center;
+  width: 70vw;
+  border-top: #ced7e1 5px solid;
+}
+
+.week-schedule-name{
+  font-size: 40px;
+  font-weight: bold;
+  color: #ced7e1;
+  margin-top: 30px;
+}
+
+.schedules{
+  font-size: 30px;
+  list-style: none;
+  background-color: #2e6c83;
+}
+
+.schedule{
+  border-radius: 15px;
+  margin: 20px 50px 0 0 ;
+  padding: 5px 0;
+  font-size: 25px;
+  color:  #50728b;
+  background-color: #ced7e1;
+}
+
+.week-share-schedule-name{
+  font-size: 30px;
+  font-weight: bold;
+  color: #ced7e1;
+}
+
+.calendars{
+  width: 30vw;
+  text-align: center;
+  border-top: #ced7e1 5px solid;
+  border-left: #ced7e1 5px solid;
+}
+
+.calendars a{
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 80%;
+  border: double 10px #50728b;
+  color: #50728b;
+  padding: 5px 20px;
+  margin: 10px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #ced7e1;
+}
+
+.calendar{
+  background-color: #2e6c83;
+}
+
+.calendars-check{
+  background-color: #ced7e1;
+  margin: 30px 0;
+  font-size: 20px;
+  display: inline-block;
+  padding: 3px 20px;
+  color: #50728b;
+  font-weight: bold;
+}
+
+.logout{
+  display: flex;
+  width: 100vw;
+  background-color: #50728b;
+}
+
+.img{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  opacity: 0.5;
+}
+
+.logout-title{
+  width: 50vw;
+  height: 100vh;
+}
+
+.logout-title-name{
+  text-align: center;
+  justify-content: center;
+  margin-top: 15vh;
+  font-size: 120px;
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+
+.logout-sub-title-name{
+  margin-top: 50px;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  position: relative;
+}
+
+.logout-category{
+  width: 50vw;
+}
+
+.logout-category-name{
+  list-style: none;
+  text-align: center;
+  margin-top: 35vh;
+}
+
+ul.logout-category-name li a{
+  border: solid 5px #86b1c1;
+  text-decoration: none;
+  background-color: #f5ebe0;
+  font-size: 40px;
+  padding: 5px;
+  color: #50728b;
+  font-weight: bold;
+  padding: 20px 50px;
+  border-radius: 100px;
+  position: relative;
+}
+
+ul.logout-category-name li{
+  margin-top: 70px;
+}

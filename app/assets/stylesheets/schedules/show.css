@@ -1,0 +1,36 @@
+.schedule-show-page{
+  background-color: #2e6c83;
+  height: calc(100vh - 80px);
+}
+
+.schedule-show-name{
+  font-size: 30px;
+  padding: 10px 0 0 50px;
+  color: #ced7e1;
+}
+
+.schedule-show-text{
+  text-align: center;
+  color: #ced7e1;
+  background-color: #2e6c83;
+}
+
+.schedule-category{
+  font-size: 30px;
+  padding: 20px;
+}
+
+.schedule-change{
+  font-size: 30px;
+  background-color: #2e6c83;
+  padding-bottom: 30px;
+}
+
+.schedule-change a{
+  text-decoration: none;
+  border: 5px double ;
+  background-color: #ced7e1;
+  color: #2e6c83;
+  margin: 0 30px;
+  padding: 10px 20px;
+}

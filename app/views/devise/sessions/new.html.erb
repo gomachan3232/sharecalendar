@@ -1,17 +1,30 @@
-<h2>ログイン</h2>
+<%# CSSはcalendars/index.cssも併用して使っています%>
 
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
+<div class='logout'>
+  <div class='logout-title'>
+    <div class='logout-title-name'>
+      <%= "Share Calendar" %>
+    </div>
+    <div class='login-name'>
+      <%= '＜　ログインページ　＞' %>
+    </div>
+  </div>
+  
+  <div class='login-form'>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    
+      <div class='session-form-text'>
+        メールアドレス<br>
+        <%= f.email_field :email, class: 'form-view',placeholder: "PC・携帯どちらでも可" %>
+      </div>
 
-<%= flash[:alert] %>
-
-
-
-  メールアドレス
-  <%= f.email_field :email, placeholder: "PC・携帯どちらでも可" %>
-
-  パスワード
-  <%= f.password_field :password, placeholder:"パスワードを入力" %>
-
-  <%= f.submit "ログイン" %>
-
-<% end %>
+      <div class='session-form-text'>
+        パスワード<br>
+        <%= f.password_field :password, class: 'form-view', placeholder:"パスワードを入力" %>
+      </div>
+      <div class='login-button'>
+        <%= f.submit "ログインする",class: 'login-button-view' %>
+      </div>
+    <% end %>
+  </div>
+</div>

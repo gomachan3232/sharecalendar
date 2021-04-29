@@ -1,0 +1,30 @@
+.share-calender-create-page{
+  background-color: #2e6c83;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+.completed{
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+  padding: 20vh 0;
+  color: #ced7e1;
+}
+
+.top-page-return{
+  text-align: center;
+}
+
+.top-page-return a{
+  border: solid 5px #86b1c1;
+  text-decoration: none;
+  background-color: #f5ebe0;
+  display: inline-block;
+  font-size: 40px;
+  padding: 5px;
+  color: #50728b;
+  font-weight: bold;
+  padding: 10px 50px;
+  margin: 3px;
+}

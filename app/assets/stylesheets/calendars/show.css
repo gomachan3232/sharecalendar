@@ -1,0 +1,87 @@
+.calendar-show-page{
+  background-color: #2e6c83;
+  height: calc(100vh - 80px);
+}
+
+.calendar-name{
+  font-size: 25px;
+  padding-left: 20px;
+  color: #ced7e1;
+}
+
+.calendar-heading{
+  display: flex;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.calendar-previous{
+  margin-left: 15vw;
+  border: 3px solid #50728b;
+  border-radius: 50px;
+  padding: 1px 40px;
+  background-color: #ced7e1;
+}
+
+.calendar-previous a{
+  text-decoration: none;
+  color: #50728b;
+}
+
+.calendar-title{
+  margin:0 70px;
+  font-size: 30px;
+  color: #ced7e1;
+  font-weight: bold;
+}
+
+.calendar-next{
+  border: 3px solid #50728b;
+  border-radius: 50px;
+  padding: 2px 40px;
+  background-color: #ced7e1;
+}
+
+.calendar-next a{
+  text-decoration: none;
+  color: #50728b;
+}
+
+.schedule-create a{
+  text-decoration: none;
+  margin: 20px 0 0 20px;
+  font-size: 30px;
+  padding: 5px 30px ;
+  border: double 10px #2e6c83;
+  color: #50728b;
+  font-weight: bold;
+  background-color: #ced7e1;
+}
+
+.schedule-name{
+  background-color: #5cbbbe;
+  margin-top: 3px;
+  padding-left: 10px;
+}
+
+.schedule-name a{
+  text-decoration: none;
+  color: white;
+}
+
+.calendar-delete{  
+  background-color: white;
+  display: inline-block;
+  float: right;
+  margin: 10px 10px 0 0;
+  font-size: 16px;
+  border: red 1px solid;
+  border-radius: 100px;
+  padding: 3px;
+}
+
+.calendar-delete a{
+  text-decoration: none;
+  color: red;
+}
+
