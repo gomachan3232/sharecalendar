@@ -16,7 +16,7 @@
           <% next unless @my_calendars.ids.include?(schedule.calendar_id) %>
           <li class='schedule'>
             <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %>  
-            <%= schedule.schedule_name %>
+            <b><%= schedule.schedule_name %></b>
             <%= "@" + schedule.calendar.calendar_name + "のカレンダー"%>
           </li>
         <% end %>
@@ -31,7 +31,7 @@
           <% if @my_share_calendars.include?(schedule.calendar_id) %>
             <li class='schedule'>
               <%= schedule.date.strftime("%m/%d") %> <%= %w((日) (月) (火) (水) (木) (金) (土))[schedule.date.wday] %>
-              <%= schedule.schedule_name %>
+              <b><%= schedule.schedule_name %></b>
               <%= "@" + schedule.calendar.calendar_name + "のカレンダー" %>
             </li>
           <% end %>

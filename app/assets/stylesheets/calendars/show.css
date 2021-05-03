@@ -1,6 +1,6 @@
 .calendar-show-page{
   background-color: #2e6c83;
-  height: calc(100vh - 80px);
+  height: 100vh;
 }
 
 .calendar-name{
