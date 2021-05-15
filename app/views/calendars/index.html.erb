@@ -9,7 +9,7 @@
   <div class='top-page'>
     <div class='week-schedule'>
       <div class='week-schedule-name'>
-        <%= "一週間の予定" %><%= Date.today.strftime("(%m/%d") %><%= Date.today.since(7.days).strftime("~%m/%d)") %>
+        <%= "一週間の予定" %><%= Date.current.strftime("(%m/%d") %><%= Date.current.since(7.days).strftime("~%m/%d)") %>
       </div>
       <ul class='schedules'>
         <% @week_schedules.each do |schedule| %>

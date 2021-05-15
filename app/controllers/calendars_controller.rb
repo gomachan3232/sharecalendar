@@ -6,7 +6,7 @@ class CalendarsController < ApplicationController
 
   def index
     @schedules = Schedule.all.order(date: :asc)
-    @week_schedules = @schedules.where(date: Date.today...Date.today.since(8.days))
+    @week_schedules = @schedules.where(date: Date.current...Date.current.since(8.days))
     if user_signed_in?
       @my_share_calendars = current_user.share_calendars.pluck(:calendar_id)
       @my_calendars = Calendar.where(user_id: current_user.id)
